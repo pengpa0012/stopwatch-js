@@ -1,0 +1,141 @@
+:root{
+	font-size: 18px;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Bangers', cursive;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	--green-bg: #30D958;
+	--red-bg: #DC3545;
+	--yellow-bg: #EFEA3C;
+	transition: all 200ms ease;
+}
+
+.stopwatch{
+	width: 350px;
+	height: 350px;
+	border: solid 30px #444444;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 3rem 1rem;
+	border-radius: 50%;
+	background: #202020;
+	position: relative;
+}
+
+.stopwatch .time{
+	background: #D6D5B9;
+	width: 80%;
+	border-radius: 5px;
+	padding: .5rem;
+	text-align: center;
+	box-shadow: 0 0 5px 5px rgba(0,0,0,.4) inset;
+	border: solid 10px #000;
+}
+
+.stopwatch .time span{
+	font-size: 2.5rem;
+}
+
+.stopwatch .start{
+	position: absolute;
+	top: -58px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60px;
+	height: 20px;
+	background: var(--green-bg);
+	border-radius: 5px 5px 0 0;
+	cursor: pointer;
+}
+
+.start.active{
+	transform: translate(-50%, 10px);
+}
+
+.stopwatch .stop{
+	position: absolute;
+	top: -10px;
+	left: 0px;
+	transform: rotate(-45deg);
+	width: 40px;
+	height: 20px;
+	background: var(--red-bg);
+	border-radius: 5px 5px 0 0;
+	cursor: pointer;
+}
+
+.stop.active{
+	top: 0px;
+	left: 5px;
+}
+
+.stopwatch .reset{
+	position: absolute;
+	top: -10px;
+	right: 0px;
+	transform: rotate(45deg);
+	width: 40px;
+	height: 20px;
+	background: var(--yellow-bg);
+	border-radius: 5px 5px 0 0;
+	cursor: pointer;
+}
+
+.reset.active{
+	top: 0px;
+	right: 5px;
+}
+
+.btn::after{
+	content: '';
+	width: 30px;
+	height: 10px;
+	background: #444444;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 20px;
+}
+
+.legend{
+	position: absolute;
+	bottom: 30px;
+	left: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	letter-spacing: 2px;
+}
+
+.legend .stop, .legend .start, .legend .reset{
+	margin: 0 30px;
+}
+
+.legend .stop .stop-bar, .legend .start .start-bar, .legend .reset .reset-bar{
+	width: 100px;
+	height: 20px;
+	border-radius: 10px;
+}
+
+.legend .stop .stop-bar{
+	background: var(--red-bg);
+}
+
+.legend .start .start-bar{
+	background: var(--green-bg);
+}
+
+.legend .reset .reset-bar{
+	background: var(--yellow-bg);
+}
